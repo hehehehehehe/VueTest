@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+    <style>
+        .div-inline{
+            display:inline
+        }
+        img{
+            width: 20%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+        <h2>图片轮播</h2>
+    <div id="app">
+        <img v-bind:src="imgUrl" v-bind:alt="alt" v-bind:title="title">
+  
+        
+         
+        <div style="">
+            <div class="div-inline" style=""><button>《</button></div>
+            <div class="div-inline" ><img v-bind:src="imgUrl" v-bind:alt="alt" v-bind:title="title" ></div> 
+            <div class="div-inline" style="margin-bottom:45%;"><button>》</button></div>
+        </div>
+       
+  
+
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                imgUrl:"./img/1.jpg",
+                title:"寝室五人带张鹏一个儿子",
+                alt:"图片不存在",
+                current:0,
+                imgs:["./img/1.jpg","./img/2.jpg","./img/3.jpg","./img/4.jpg"],
+            },
+             mounted(){
+                var that = this;
+                setInterval(function(){
+                    if(that.current < 2){
+                            that.current++
+                    }else{
+                            that.current = 0;
+                    }
+                    var img = that.imgs[that.current]
+                    that.imgUrl = img
+                },1000)
+                    
+            },
+            methods:{
+
+            }
+            
+        })
+    </script>
+</body>
+</html>

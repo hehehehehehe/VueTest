@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轮播图</title>
+<script src="../vue.js"></script>
+</head>
+
+<style type="text/css">
+* {padding: 0;margin: 0;font-family: "微软雅黑";font-size: 14px;}
+ul,li {list-style: none;}
+a {text-decoration: none;color: black;}
+.box{width: 400px;height: 400px;margin: 20px auto;overflow: hidden;position: relative;}
+.box-1 ul{}
+.box-1 ul li{width: 400px;height: 400px;position: relative;overflow: hidden;}
+.box-1 ul li img{display:block;width: 400px; height: 400px;}
+.box-2{position: absolute;right: 10px;bottom: 14px;}
+
+.box-2 ul .on{background: rgba(255,255,255,0.6);}
+.box-3 span{position: absolute;color: white;background: rgba(125,125,120,.3);width: 50px;height: 80px;
+				top:50%; font-family: "宋体";line-height: 80px;font-size:60px;margin-top: -40px;
+				text-align: center;cursor: pointer;}
+.box-3 .prev{left: 10px;}
+.box-3 .next{right: 10px;}
+.box-3 span::selection{background: transparent;}
+.box-3 span:hover{background: rgba(125,125,120,.8);}
+</style>
+
+
+<body>
+<div class="box" id="app">
+	<div class="box-1">
+		<ul>
+			<li>
+				<img v-bind:src="imgUrl" v-bind:alt="alt" v-bind:title="title">
+				
+			</li>
+			
+		</ul>
+	</div>
+	<div class="box-2">
+		<ul>
+			
+		</ul>
+	</div>
+	<div class="box-3">
+		<span class="prev" v-on:click="left"> < </span>
+		<span class="next" v-on:click="right"> > </span>
+	</div>
+</div>
+
+
+
+</div>
+<script>
+	 new Vue({
+            el:"#app",
+            data:{
+                imgUrl:"./img/1.jpg",
+                title:"寝室五爹带张鹏一个儿子",
+                alt:"图片不存在",
+                current:0,
+                imgs:["./img/1.jpg","./img/2.jpg","./img/3.jpg","./img/4.jpg","./img/5.jpg"],
+            },
+             mounted(){
+                var that = this;
+                setInterval(function(){
+                    if(that.current < 4){
+                            that.current++
+                    }else{
+                            that.current = 0;
+                    }
+                    var img = that.imgs[that.current]
+                    that.imgUrl = img
+                },3000)
+                    
+            },
+            methods:{
+				left(){
+					if(this.current==0){
+						this.current = 4;
+					}else{
+						this.current--;
+					}
+					var img = this.imgs[this.current]
+                    this.imgUrl = img
+				},
+				right(){
+					if(this.current==4){
+						this.current = 0;
+					}else{
+						this.current++;
+					}
+					var img = this.imgs[this.current]
+                    this.imgUrl = img
+				}
+
+            }
+            
+        })
+</script>
+</body>
+</html>

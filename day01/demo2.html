@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+                <div>{{name}}</div>
+                <div>{{ a || b }}</div>
+                <div>{{a>b}}</div>
+                <div>{{ a > b ? "你是狗屎吧？":'难道不是吗？'}}</div>
+                <div>{{ 1 + name }}</div>
+                <div>{{ show() }}</div>
+
+        </div>
+
+
+        <script>
+                var vm = new Vue({
+                    el:"#app",
+                    data:{
+                        name:"郑州轻工业大学",
+                        a:1,
+                        b:3
+                    },
+                    methods:{
+                        // click(){
+                        //      //alert('ok'),
+                        //      this.name="郑州轻工业大学",
+                        //      this.number="541713140140"
+        
+                        // }
+
+                        show(){
+                            return "你肯定是我的儿子。"
+                        }
+                    }
+                })
+            </script>
+    
+</body>
+</html>
