@@ -13,7 +13,7 @@
 <body>
     <div id="app">
         <div class="student-form">
-            <div class="f-item">姓名：<input type="text" v-model="nmae"></div>
+            <div class="f-item">姓名：<input type="text" v-model="name"></div>
             <div class="f-item">
                 性别：
                 <select name="" id="" v-model="sex">
@@ -23,7 +23,7 @@
             </div>
             <div class="f-item">年龄：<input type="number" min="0" max="25" v-model="age"></div>
             <div class="f-item">手机号：<input type="text" v-model="phnumber"></div>
-            <div class="f-item"><button @click="">添加</button></div>
+            <div class="f-item"><button @click="addUser">添加</button></div>
 
         </div>
         <div class="student-list">
@@ -69,7 +69,7 @@
                 addUser() {
                     if (this.name && this.sex && this.age && this.phnumber) {
                         var user = {
-                            id: generateId(),
+                            id:this.generateId(),
                             name: this.name,
                             sex: this.sex,
                             age: this.age,
