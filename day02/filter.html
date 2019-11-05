@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{ price | moneyFormat(2)}}</h1>
+        <h1>{{price | moneyFormat2("$",2)}}</h1>
+        <h1>{{price | moneyFormat2("$",2) | moneyFormat3}}</h1>
+
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                price:888
+            },
+            filters:{
+                moneyFormat(v,n){
+                    return v.toFixed(n)
+                },
+                moneyFormat2(v,sym,n){
+                    return sym+v.toFixed(n)
+                },
+                moneyFormat3(v){
+                    return "价格："+v
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

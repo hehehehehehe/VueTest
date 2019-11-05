@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+
+    <style>
+        html,body{
+            width: 100%;height: 100%;
+        }
+
+
+    ul{
+        width: 100%;height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul li{
+        width: 100%;
+        height: 100px;
+        border-bottom: solid 1px #ccc;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    ul li .cover{
+        width: 100px;
+        float: left;
+    }
+
+    ul li .content{
+        float: left;
+    }
+
+    ul li img{
+        width: 66.66px;
+        height: 100px;
+    }
+
+    .rate{
+        color:red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li  v-for="m in subjects">
+               <div  class="cover"> <img :src="m.cover" alt=""></div>
+               <div class="content"> 
+                   <h4> {{ m.title }}  </h4>
+                    评分：<span class="rate">{{m.rate}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+
+        // el  element
+        new Vue({
+            el: "#app",
+            data: {
+                "subjects": [{ "rate": "8.2", "cover_x": 2000, "title": "罗小黑战记", "url": "https:\/\/movie.douban.com\/subject\/26709258\/", "playable": true, "cover": "https://img9.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2568288336.webp", "id": "26709258", "cover_y": 3208, "is_new": false }, { "rate": "8.2", "cover_x": 1500, "title": "续命之徒：绝命毒师电影", "url": "https:\/\/movie.douban.com\/subject\/30372377\/", "playable": false, "cover": "https://img1.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2569548689.webp", "id": "30372377", "cover_y": 2222, "is_new": false }, { "rate": "6.3", "cover_x": 1500, "title": "兰开斯特之王", "url": "https:\/\/movie.douban.com\/subject\/30143698\/", "playable": false, "cover": "https://img9.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2567131266.webp", "id": "30143698", "cover_y": 2222, "is_new": true }, { "rate": "7.6", "cover_x": 510, "title": "卢斯", "url": "https:\/\/movie.douban.com\/subject\/27195204\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2562070353.webp", "id": "27195204", "cover_y": 755, "is_new": true }, { "rate": "6.4", "cover_x": 600, "title": "大西洋", "url": "https:\/\/movie.douban.com\/subject\/33413905\/", "playable": false, "cover": "https://img9.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2564240166.webp", "id": "33413905", "cover_y": 800, "is_new": true }]
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        html,body{
+            width: 100%;height: 100%;
+        }
+
+
+    ul{
+        width: 100%;height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul li{
+        width: 100%;
+        height: 100px;
+        border-bottom: solid 1px #ccc;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    ul li .cover{
+        width: 100px;
+        float: left;
+    }
+
+    ul li .content{
+        float: left;
+    }
+
+    ul li img{
+        width: 66.66px;
+        height: 100px;
+    }
+
+    .rate{
+        color:red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+            <ul>
+                    <li  v-for="m in subjects">
+                       <div  class="cover"> <img :src="m.cover" alt=""></div>
+                       <div class="content"> 
+                           <h4> {{ m.title }}  </h4>
+                            评分：<span class="rate">{{m.rate}}</span>
+                        </div>
+                    </li>
+                </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                "subjects": [
+                    { "rate": "9.3", "cover_x": 1236, "title": "致命女人 第一季", "url": "https:\/\/movie.douban.com\/subject\/30401122\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2566967861.webp", "id": "30401122", "cover_y": 1824, "is_new": false },
+                     { "rate": "8.7", "cover_x": 8250, "title": "摩登情爱 第一季", "url": "https:\/\/movie.douban.com\/subject\/30385409\/", "playable": false, "cover": "https://img9.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2564153546.webp", "id": "30385409", "cover_y": 12150, "is_new": false },
+                      { "rate": "8.8", "cover_x": 600, "title": "黑暗物质三部曲 第一季", "url": "https:\/\/movie.douban.com\/subject\/26657521\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2571781762.webp", "id": "26657521", "cover_y": 889, "is_new": true },
+                       { "rate": "7.3", "cover_x": 720, "title": "如果被关注那就完了", "url": "https:\/\/movie.douban.com\/subject\/34843137\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2569879131.webp", "id": "34843137", "cover_y": 1114, "is_new": true },
+                        { "rate": "6.5", "cover_x": 1980, "title": "杰克·莱恩 第二季", "url": "https:\/\/movie.douban.com\/subject\/30205129\/", "playable": false, "cover": "https://img9.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2564153586.webp", "id": "30205129", "cover_y": 2916, "is_new": true },
+                         { "rate": "8.8", "cover_x": 838, "title": "偶然发现的一天", "url": "https:\/\/movie.douban.com\/subject\/33446363\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2568879190.webp", "id": "33446363", "cover_y": 1200, "is_new": false },
+                          { "rate": "8.7", "cover_x": 1080, "title": "奇葩说 第六季", "url": "https:\/\/movie.douban.com\/subject\/33441919\/", "playable": true, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2571064755.webp", "id": "33441919", "cover_y": 1920, "is_new": true },
+                           { "rate": "7.2", "cover_x": 1080, "title": "谍战深海之惊蛰", "url": "https:\/\/movie.douban.com\/subject\/30464506\/", "playable": true, "cover": "https://img1.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2550093748.webp", "id": "30464506", "cover_y": 1728, "is_new": false },
+                            { "rate": "7.0", "cover_x": 2160, "title": "演员请就位", "url": "https:\/\/movie.douban.com\/subject\/33385536\/", "playable": true, "cover": "https://img1.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2571224839.webp", "id": "33385536", "cover_y": 3840, "is_new": false },
+                             { "rate": "8.6", "cover_x": 472, "title": "东京大饭店", "url": "https:\/\/movie.douban.com\/subject\/33464695\/", "playable": false, "cover": "https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2572872574.webp", "id": "33464695", "cover_y": 709, "is_new": false }]
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
