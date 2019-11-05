@@ -1,0 +1,35 @@
+.student-form{
+    width: 400px;
+    border: solid 2px rgb(4, 137, 214);
+    margin:  0 auto;
+    padding: 10px;
+    text-align: left;
+}
+
+.student-form .f-item{
+    height: 50px;
+}
+
+
+/* student-list */
+.student-list{
+    width: 400px;
+    margin:  0 auto;
+    border: solid 2px  rgb(4, 137, 214);
+    padding: 10px;
+}
+.student-list .table-head{
+    background: rgb(4, 137, 214);
+    color: #fff;
+}
+
+
+.student-list .row{
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+}
+
+.student-list .row .col{
+    flex:1;
+}

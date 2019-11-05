@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="student-form">
+            <div class="f-item">姓名：<input type="text" v-model="nmae"></div>
+            <div class="f-item">
+                性别：
+                <select name="" id="" v-model="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="f-item">年龄：<input type="number" min="0" max="25" v-model="age"></div>
+            <div class="f-item">手机号：<input type="text" v-model="phnumber"></div>
+            <div class="f-item"><button @click="">添加</button></div>
+
+        </div>
+        <div class="student-list">
+                <div class="table-head row">
+                    <div class="col">姓名</div>
+                    <div class="col">性别</div>
+                    <div class="col">年龄</div>
+                    <div class="col">手机号</div>
+                    <div class="col">操作</div>
+                </div>
+                <div class="row"  v-for="s in stu">
+                        <div class="col">{{s.name}}</div>
+                        <div class="col">{{s.sex}}</div>
+                        <div class="col">{{s.age}}</div>
+                        <div class="col">{{s.phnumber}}</div>
+                        <div class="col">  <button  @click="delUser(s.id)">删除</button> </div>
+                </div>
+
+            </div>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "",
+                age: 0,
+                sex: "",
+                phnumber: "",
+                stu: [
+                    { id: 0, name: "张鹏", sex: "女", age: "20", phnumber: 1717171717 },
+                    { id: 1, name: 'zs', sex: "男", age: 20, phnumber: 18611111111 },
+                    { id: 2, name: 'zs1', sex: "男", age: 20, phnumber: 18611111111 },
+                    { id: 3, name: 'zs2', sex: "男", age: 20, phnumber: 18611111111 },
+                ]
+
+            },
+            methods: {
+                generateId() {
+                    return Math.random().toString(16).slice(2)
+                },
+
+                addUser() {
+                    if (this.name && this.sex && this.age && this.phnumber) {
+                        var user = {
+                            id: generateId(),
+                            name: this.name,
+                            sex: this.sex,
+                            age: this.age,
+                            phnumber: this.phnumber
+                        }
+
+
+                        this.stu.push(user);
+                        this.name = ""
+                        this.sex = ""
+                        this.age = 0
+                        this.phnumber = ""
+
+                    }
+
+
+                },
+                delUser(id){
+                    console.log(id)
+
+                // for(var i = 0;i < this.stu.length;i++){
+                //     var stu = this.stu[i]
+                //     if(id ===  stu.id){
+                //         this.stu.splice(i,1)
+                //     }
+                // }
+
+
+                this.stu = this.stu.filter(function(stu,index){
+                        return stu.id != id
+                })
+
+                }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
