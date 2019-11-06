@@ -108,6 +108,7 @@ html, body {
       width: 109px;
       height: 109px;
       border-radius: 10px;
+      margin-bottom: -10px;
   }
   #swiper-slide12{
     width: 109px;
