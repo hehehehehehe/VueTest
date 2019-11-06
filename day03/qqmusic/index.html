@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>qq-music</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./axios.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <header> QQ Music </header>
+        <nav>
+            <ul>
+                <li>推荐</li>
+                <li>排行榜</li>
+            </ul>
+        </nav>
+        <div class="search-panel">
+            <input type="text"  placeholder="搜索">
+        </div>
+        <div>
+            <h4>官方歌单</h4>
+            <div class="swiper-container" id="swiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"  v-for="s in swiper1" id="swiper-slide12">
+                        <img :src="s.cover" alt="">
+                        <p class="p">{{s.title}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <h4>达人歌单</h4>
+            <div class="swiper-container" id="swiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"  v-for="s in swiper2" id="swiper-slide12">
+                        <img :src="s.cover" alt="">
+                        <p>{{s.title}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <h4>专区</h4>
+            <div class="swiper-container" id="swiper3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"  v-for="s in swiper3" id="swiper-slide3">
+                        <img :src="s.cover" alt="" id="img3">
+                        <p>{{s.title}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script  src="./app.js"></script>
+</body>
+</html>

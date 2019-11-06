@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <script src="./js/axios.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="m in movie">
+                <h2>{{m.title}}</h2>
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                movie:[]
+
+            },
+            mounted(){
+                axios.get("https://www.easy-mock.com/mock/5dc2409433e7901fc10adea7/movie/movie#!method=get")
+                .then(res=>{
+                    this.movie = res.data.subjects
+                })
+                
+            }
+            
+        })
+    </script>
+    
+</body>
+</html>
