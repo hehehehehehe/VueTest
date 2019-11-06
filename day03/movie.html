@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h1> 豆瓣电影 </h1>
+
+        <ul>
+
+            <li v-for="m in movies">
+
+                {{m.title}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+    
+    new Vue({
+        el:"#app",
+        data:{
+          movies:[]
+        },
+        mounted(){
+            axios.get("https://easy-mock.com/mock/5dc23b5033e7901fc10ade5d/movie#!method=get")
+            .then(res =>{
+                console.log(res)
+                this.movies = res.data.subjects
+            })
+        }
+    })
+    </script>
+</body>
+</html>
