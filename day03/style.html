@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+
+        <h1>{{w}} </h1>
+
+        <header  :style="{width:width,height:height,backgroundColor:bgColor}">郑州轻工业大学</header>
+
+        <footer  :style="myFooter">郑州轻工业大学</footer>
+     <button @click="changeStyle"> click </button>
+    </div>
+
+
+    <script>
+    
+    
+    new Vue({
+        el:"#app",
+        data:{
+            w:100,
+            h:200,
+            width:'100px',
+            height:'100px',
+            bgColor:'#ff0',
+            myFooter:{
+                width:'200px',
+                height:'200px',
+                backgroundColor:"#00f"
+            }
+        },
+        methods:{
+            changeStyle(){
+                this.w +=10;
+                this.width = this.w + 'px'
+
+                this.h += 10
+                this.myFooter.height = this.h + 'px'
+            }
+        }
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <script src="./js/axios.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{books.title}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                books:{title:""}
+
+            },
+            mounted(){
+                // axios.get("./json/books.json")
+                // .then(res=>{
+                //     this.books = res.data
+                // })
+                var that = this
+                axios.get("./json/books.json")
+                .then(function(res){
+                    console.log(res)
+                    that.books=res.data
+
+                })
+            }
+            
+        })
+    </script>
+    
+</body>
+</html>
