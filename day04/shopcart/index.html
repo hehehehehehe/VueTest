@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="cart">
+
+            <my-cart v-for="data in cart" @up="upHandle",@down="downHandle"></my-cart>
+        </div>
+
+    </div>
+    <script>
+        Vue.component('my-cart', {
+            props: ['data'],
+            template: `
+            <div class="item">
+                    <div class="cover"><img :src="data.cover" alt=""></div>
+
+                    <div class="title">{{data.title}}</div>
+                    <div class="price">{{data.price}}</div>
+
+                    <button @click="down(data.id)">-</button>
+                    <div class="number">{{data.number}}</div>
+                    <button @click="up(data.id)">+</button>
+                    <div class="oneallprice">{{data.oneallprice}}</div>
+            </div>
+            `,
+            methods: {
+                upHandle(id) {
+                    this.$emit("up", id)
+                },
+                downHandle(id) {
+                    this.$emit("down", id)
+                }
+            }
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                cart: [
+                    { id: 0, title: "mata30pro", cover: "./img/mate30.jpg", price: 7600, number: "0", oneallprice: price*number },
+                    { id: 1, title: "mi9", cover: "", price: 3200, number: "0", oneallprice: price*number },
+                    { id: 2, title: "p30pro", cover: "", price: 4600, number: "0", oneallprice: price*number },
+                    { id: 3, title: "micc", cover: "", price: 1800, number: "0", oneallprice: price*number },
+                    { id: 4, title: "miccpro", cover: "", price: 2800, number: "0", oneallprice: price*number },
+                    { id: 5, title: "iphone11pro", cover: "", price: 8600, number: "0", oneallprice: price*number }]
+            },
+
+
+            mathods: {
+                up(id) {
+
+                },
+                down() {
+
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

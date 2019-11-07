@@ -1,0 +1,22 @@
+.cart{
+    width: 600px;
+    margin: 0 auto;
+    border: solid 1px #aaa;
+}
+.item{
+    display: flex;
+    height: 100px;
+    line-height: 100px;
+}
+.item div{
+    flex: 1;
+    border-bottom: solid 1px #aaa;
+    margin-bottom: 2px;
+}
+.item .cover{
+    width: 100px;
+}
+.item .cover img{
+    width: 100px;
+    height: 100px;
+}
