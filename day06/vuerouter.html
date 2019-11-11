@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 1、引入vue.js、 vue-router.js  -->
+    <script src="../vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- 2、定义路由连接   -->
+        <router-link to="/home">首页</router-link>
+        <router-link to="/user">用户界面</router-link>
+
+        <!-- 3、视图，将来渲染匹配上的组件   -->
+        <router-view></router-view>
+
+    </div>
+    <script>
+        
+        const Home = {template:"<div>这是首页！！！！</div>"}
+        const User = {template:"<div>这是用户界面！！！！</div>"}
+        // 4、创建router实例，然后传 ‘routes’配置
+        let router = new VueRouter({
+            routes:[
+                {path:"/home",component:Home},
+                {path:"/user",component:User}
+            ]
+        })
+
+
+
+        new Vue({
+            el:"#app",
+
+         // 5、创建和挂载根实例
+            router:router
+        })
+    </script>
+</body>
+</html>
